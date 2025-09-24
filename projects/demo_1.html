@@ -1,0 +1,1749 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍕 1. Food Delivery Analytics Pro </title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --warning-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            --danger-gradient: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            --sidebar-width: 280px;
+        }
+
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: var(--sidebar-width);
+            height: 100vh;
+            background: var(--primary-gradient);
+            color: white;
+            z-index: 1030;
+            box-shadow: 4px 0 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .sidebar .logo {
+            padding: 2rem 1.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .logo h3 {
+            color: white;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            font-size: 1.5rem;
+            background: rgba(255,255,255,0.2);
+            padding: 10px;
+            border-radius: 50%;
+        }
+
+        .nav-link {
+            color: rgba(255,255,255,0.8) !important;
+            padding: 1rem 1.5rem !important;
+            border-radius: 0 !important;
+            margin: 0 5px;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background: rgba(255,255,255,0.15) !important;
+            color: white !important;
+            border-left-color: #fff;
+            transform: translateX(5px);
+        }
+
+        .nav-link i {
+            width: 20px;
+            text-align: center;
+            margin-right: 10px;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: var(--sidebar-width);
+            padding: 2rem;
+            min-height: 100vh;
+            transition: margin-left 0.3s ease;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            padding: 1rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            color: #2c3e50;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        /* KPI Cards */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .kpi-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            transition: all 0.3s ease;
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .kpi-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+        }
+
+        .kpi-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .kpi-card.primary::before { background: var(--primary-gradient); }
+        .kpi-card.success::before { background: var(--success-gradient); }
+        .kpi-card.warning::before { background: var(--warning-gradient); }
+        .kpi-card.danger::before { background: var(--danger-gradient); }
+
+        .kpi-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .kpi-card.primary .kpi-icon { background: var(--primary-gradient); }
+        .kpi-card.success .kpi-icon { background: var(--success-gradient); }
+        .kpi-card.warning .kpi-icon { background: var(--warning-gradient); }
+        .kpi-card.danger .kpi-icon { background: var(--danger-gradient); }
+
+        .kpi-content h3 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin: 0 0 5px 0;
+        }
+
+        .kpi-content p {
+            color: #7f8c8d;
+            margin: 0 0 10px 0;
+            font-weight: 500;
+        }
+
+        .kpi-trend {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .trend-up { color: #27ae60; }
+        .trend-down { color: #e74c3c; }
+
+        .trend-icon {
+            font-size: 1.2rem;
+        }
+
+        /* Charts */
+        .chart-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            border: none;
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #ecf0f1;
+        }
+
+        .chart-header h3 {
+            color: #2c3e50;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .chart-container {
+            height: 400px;
+            position: relative;
+        }
+
+        /* Form Styles */
+        .form-floating {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-floating label {
+            color: #7f8c8d;
+            font-weight: 500;
+        }
+
+        .btn-custom {
+            background: var(--primary-gradient);
+            border: none;
+            border-radius: 15px;
+            padding: 12px 30px;
+            font-weight: 600;
+            color: white;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+            color: white;
+        }
+
+        .btn-success-custom {
+            background: var(--success-gradient);
+            border: none;
+        }
+
+        .btn-success-custom:hover {
+            box-shadow: 0 10px 20px rgba(79, 172, 254, 0.3);
+        }
+
+        /* Result Cards */
+        .result-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .result-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+        }
+
+        .result-card.success::before {
+            background: var(--success-gradient);
+        }
+
+        .result-card.danger::before {
+            background: var(--danger-gradient);
+        }
+
+        .prediction-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .badge-success {
+            background: var(--success-gradient);
+            color: white;
+        }
+
+        .badge-danger {
+            background: var(--danger-gradient);
+            color: white;
+        }
+
+        .prediction-number {
+            font-size: 4rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        /* Recommendation Items */
+        .rec-item {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .rec-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .rec-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: var(--primary-gradient);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .rec-score {
+            background: var(--success-gradient);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            min-width: 60px;
+            text-align: center;
+        }
+
+        /* Table Styles */
+        .table-custom {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: none;
+        }
+
+        .table-custom thead th {
+            background: var(--primary-gradient);
+            color: white;
+            font-weight: 600;
+            padding: 1.5rem;
+            border: none;
+        }
+
+        .table-custom tbody td {
+            padding: 1.5rem;
+            border-color: #ecf0f1;
+            vertical-align: middle;
+        }
+
+        .table-custom tbody tr:hover {
+            background: #f8f9fa;
+        }
+
+        .status-badge {
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .status-success { background: #d4edda; color: #155724; }
+        .status-danger { background: #f8d7da; color: #721c24; }
+        .status-primary { background: #d1ecf1; color: #0c5460; }
+
+        /* Dark Mode */
+        body.dark {
+            background: #1a1a2e;
+            color: #e6e6e6;
+        }
+
+        body.dark .header,
+        body.dark .kpi-card,
+        body.dark .chart-card,
+        body.dark .result-card,
+        body.dark .rec-item,
+        body.dark .table-custom {
+            background: #16213e;
+            color: #e6e6e6;
+        }
+
+        body.dark .table-custom thead th {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+        }
+
+        body.dark .table-custom tbody tr:hover {
+            background: #243447;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.show {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .kpi-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 1rem;
+                margin: 0 1rem 2rem 1rem;
+            }
+
+            .main-content {
+                padding: 1rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="logo">
+            <h3>
+                <i class="fas fa-pizza-slice"></i>
+                Food Analytics
+            </h3>
+            <p class="text-white-50 mb-0">Professional Edition</p>
+        </div>
+
+        <nav class="flex-grow-1">
+            <a href="#" class="nav-link active" data-tab="dashboard">
+                <i class="fas fa-tachometer-alt"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="#" class="nav-link" data-tab="analysis">
+                <i class="fas fa-users"></i>
+                <span>Customer Analysis</span>
+            </a>
+            <a href="#" class="nav-link" data-tab="prediction">
+                <i class="fas fa-chart-line"></i>
+                <span>Predictions</span>
+            </a>
+            <a href="#" class="nav-link" data-tab="recommendation">
+                <i class="fas fa-lightbulb"></i>
+                <span>Recommendations</span>
+            </a>
+            <a href="#" class="nav-link" data-tab="history">
+                <i class="fas fa-history"></i>
+                <span>History</span>
+            </a>
+        </nav>
+
+        <div class="p-3">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+                <span class="text-white-50">Dark Mode</span>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="darkMode">
+                </div>
+            </div>
+            <button class="btn btn-outline-light w-100">
+                <i class="fas fa-sign-out-alt me-2"></i>Logout
+            </button>
+        </div>
+    </div>
+
+    <!-- Overlay for mobile -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header -->
+        <div class="header">
+            <div class="d-flex align-items-center">
+                <button class="btn btn-link p-0 me-3 d-md-none" id="mobileToggle">
+                    <i class="fas fa-bars fa-lg text-muted"></i>
+                </button>
+                <h1 id="pageTitle">
+                    <i class="fas fa-tachometer-alt me-2"></i>
+                    Dashboard
+                </h1>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+                <div class="position-relative">
+                    <input type="text" class="form-control ps-5" placeholder="Search...">
+                    <i class="fas fa-search position-absolute top-50 start-0 translate-middle-y ms-3 text-muted"></i>
+                </div>
+                <div class="position-relative">
+                    <i class="fas fa-bell fa-lg text-muted cursor-pointer"></i>
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        3
+                        <span class="visually-hidden">unread messages</span>
+                    </span>
+                </div>
+                <div class="dropdown">
+                    <a class="dropdown-toggle d-flex align-items-center gap-2 text-decoration-none" href="#" role="button" data-bs-toggle="dropdown">
+                        <img src="https://via.placeholder.com/40x40/667eea/ffffff?text=AV" class="rounded-circle" width="40" height="40" alt="">
+                        <span class="d-none d-md-inline">Admin</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i>Profile</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Settings</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab Contents -->
+        <!-- Dashboard Tab -->
+        <div class="tab-content active" id="dashboard-tab">
+            <div class="kpi-grid">
+                <div class="kpi-card primary fade-in-up">
+                    <div class="kpi-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="kpi-content">
+                        <h3>1,247</h3>
+                        <p>Total Customers</p>
+                        <div class="kpi-trend trend-up">
+                            <i class="fas fa-arrow-up trend-icon"></i>
+                            <span>+12% from last month</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="kpi-card success fade-in-up" style="animation-delay: 0.1s;">
+                    <div class="kpi-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="kpi-content">
+                        <h3>$156,240</h3>
+                        <p>Monthly Revenue</p>
+                        <div class="kpi-trend trend-up">
+                            <i class="fas fa-arrow-up trend-icon"></i>
+                            <span>+18% from last month</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="kpi-card warning fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="kpi-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="kpi-content">
+                        <h3>2,847</h3>
+                        <p>Total Orders</p>
+                        <div class="kpi-trend trend-up">
+                            <i class="fas fa-arrow-up trend-icon"></i>
+                            <span>+8% from last month</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="kpi-card danger fade-in-up" style="animation-delay: 0.3s;">
+                    <div class="kpi-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="kpi-content">
+                        <h3>12.4%</h3>
+                        <p>Churn Rate</p>
+                        <div class="kpi-trend trend-down">
+                            <i class="fas fa-arrow-down trend-icon"></i>
+                            <span>-2% from last month</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="chart-card fade-in-up">
+                        <div class="chart-header">
+                            <h3><i class="fas fa-chart-line me-2"></i>Revenue Over Time</h3>
+                            <select class="form-select form-select-sm" style="width: auto;">
+                                <option>7 Days</option>
+                                <option>30 Days</option>
+                                <option>90 Days</option>
+                            </select>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="revenueChart" width="400" height="200"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="chart-card fade-in-up" style="animation-delay: 0.1s;">
+                        <div class="chart-header">
+                            <h3><i class="fas fa-chart-pie me-2"></i>Customer Segments</h3>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="segmentChart" width="200" height="200"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-card fade-in-up" style="animation-delay: 0.2s;">
+                        <h5 class="mb-3"><i class="fas fa-fire me-2 text-danger"></i>Top Products</h5>
+                        <div class="list-group list-group-flush">
+                            <div class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                <div class="d-flex align-items-center">
+                                    <div class="bg-warning rounded-circle p-2 me-3">
+                                        <i class="fas fa-drumstick-bite text-dark fs-5"></i>
+                                    </div>
+                                    <div>
+                                        <div class="fw-bold">Fried Chicken</div>
+                                        <small class="text-muted">1,247 orders</small>
+                                    </div>
+                                </div>
+                                <span class="badge bg-warning text-dark rounded-pill">$12.4K</span>
+                            </div>
+                            <div class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                <div class="d-flex align-items-center">
+                                    <div class="bg-success rounded-circle p-2 me-3">
+                                        <i class="fas fa-utensils text-white fs-5"></i>
+                                    </div>
+                                    <div>
+                                        <div class="fw-bold">Italian Pasta</div>
+                                        <small class="text-muted">987 orders</small>
+                                    </div>
+                                </div>
+                                <span class="badge bg-success text-white rounded-pill">$9.8K</span>
+                            </div>
+                            <div class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                <div class="d-flex align-items-center">
+                                    <div class="bg-danger rounded-circle p-2 me-3">
+                                        <i class="fas fa-hamburger text-white fs-5"></i>
+                                    </div>
+                                    <div>
+                                        <div class="fw-bold">Beef Burger</div>
+                                        <small class="text-muted">856 orders</small>
+                                    </div>
+                                </div>
+                                <span class="badge bg-danger text-white rounded-pill">$8.5K</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Analysis Tab -->
+        <div class="tab-content" id="analysis-tab">
+            <div class="row align-items-center mb-4">
+                <div class="col">
+                    <h2><i class="fas fa-chart-bar me-2 text-primary"></i>Customer Analysis</h2>
+                    <p class="text-muted">Advanced segmentation and behavior analysis</p>
+                </div>
+                <div class="col-auto">
+                    <button class="btn btn-custom me-2">
+                        <i class="fas fa-sync-alt me-2"></i>Refresh
+                    </button>
+                    <button class="btn btn-outline-secondary">
+                        <i class="fas fa-download me-2"></i>Export
+                    </button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="chart-card">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h5><i class="fas fa-clustering me-2 text-primary"></i>K-Means Clustering</h5>
+                            <div class="d-flex align-items-center gap-2">
+                                <small class="text-muted">K =</small>
+                                <input type="number" class="form-control form-control-sm w-auto" value="4" min="2" max="8" style="width: 60px;">
+                                <button class="btn btn-sm btn-custom">Run Analysis</button>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="clusterChart" width="400" height="300"></canvas>
+                        </div>
+                        <div class="row text-center mt-3">
+                            <div class="col">
+                                <div class="text-muted small">Silhouette Score</div>
+                                <div class="h4 fw-bold text-primary">0.78</div>
+                            </div>
+                            <div class="col">
+                                <div class="text-muted small">Clusters</div>
+                                <div class="h4 fw-bold text-success">4</div>
+                            </div>
+                            <div class="col">
+                                <div class="text-muted small">Total Customers</div>
+                                <div class="h4 fw-bold text-info">1,247</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="chart-card">
+                        <h5 class="mb-3"><i class="fas fa-clock me-2 text-warning"></i>Order Heatmap</h5>
+                        <div class="text-center mb-3">
+                            <div class="heatmap-placeholder p-4 rounded bg-light">
+                                <i class="fas fa-fire fa-3x text-warning mb-3"></i>
+                                <h6 class="text-muted">Peak Hours</h6>
+                                <p class="text-warning fw-bold">7-9 PM</p>
+                                <small class="text-muted">45% of orders</small>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center gap-3 small text-center">
+                            <div>
+                                <div class="bg-success rounded-circle p-2 mx-auto mb-1" style="width: 20px; height: 20px;"></div>
+                                <div class="text-muted">High</div>
+                            </div>
+                            <div>
+                                <div class="bg-warning rounded-circle p-2 mx-auto mb-1" style="width: 20px; height: 20px;"></div>
+                                <div class="text-muted">Medium</div>
+                            </div>
+                            <div>
+                                <div class="bg-secondary rounded-circle p-2 mx-auto mb-1" style="width: 20px; height: 20px;"></div>
+                                <div class="text-muted">Low</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="table-responsive">
+                        <table class="table table-custom">
+                            <thead>
+                                <tr>
+                                    <th><i class="fas fa-users me-2"></i>Segment</th>
+                                    <th><i class="fas fa-user me-2"></i>Customers</th>
+                                    <th><i class="fas fa-birthday-cake me-2"></i>Age</th>
+                                    <th><i class="fas fa-shopping-bag me-2"></i>Orders</th>
+                                    <th><i class="fas fa-dollar-sign me-2"></i>Value</th>
+                                    <th><i class="fas fa-exclamation-triangle me-2"></i>Churn</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="table-success">
+                                    <td><span class="badge bg-success">Loyal Customers</span></td>
+                                    <td><strong>342</strong></td>
+                                    <td>28.4 yrs</td>
+                                    <td>15.2 avg</td>
+                                    <td><strong>$89.5</strong></td>
+                                    <td><span class="badge bg-success">2.1%</span></td>
+                                </tr>
+                                <tr class="table-warning">
+                                    <td><span class="badge bg-warning text-dark">Casual Users</span></td>
+                                    <td><strong>456</strong></td>
+                                    <td>24.7 yrs</td>
+                                    <td>4.8 avg</td>
+                                    <td><strong>$34.2</strong></td>
+                                    <td><span class="badge bg-warning text-dark">15.3%</span></td>
+                                </tr>
+                                <tr class="table-danger">
+                                    <td><span class="badge bg-danger">Churn Risk</span></td>
+                                    <td><strong>189</strong></td>
+                                    <td>22.1 yrs</td>
+                                    <td>1.2 avg</td>
+                                    <td><strong>$18.9</strong></td>
+                                    <td><span class="badge bg-danger">67.8%</span></td>
+                                </tr>
+                                <tr class="table-info">
+                                    <td><span class="badge bg-info">Discount Hunters</span></td>
+                                    <td><strong>260</strong></td>
+                                    <td>26.3 yrs</td>
+                                    <td>7.5 avg</td>
+                                    <td><strong>$42.1</strong></td>
+                                    <td><span class="badge bg-info">28.4%</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Prediction Tab -->
+        <div class="tab-content" id="prediction-tab">
+            <div class="row align-items-center mb-4">
+                <div class="col">
+                    <h2><i class="fas fa-crystal-ball me-2 text-primary"></i>Customer Predictions</h2>
+                    <p class="text-muted">AI-powered behavior forecasting</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="result-card fade-in-up">
+                        <h4 class="mb-4"><i class="fas fa-robot me-2 text-primary"></i>Customer Input</h4>
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="number" class="form-control" id="age" placeholder="25" value="25" min="18" max="65">
+                                        <label for="age">Age</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <select class="form-select" id="gender">
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
+                                        </select>
+                                        <label for="gender">Gender</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <select class="form-select" id="occupation">
+                                            <option>Student</option>
+                                            <option>Employee</option>
+                                            <option>Self Employed</option>
+                                            <option>Housewife</option>
+                                        </select>
+                                        <label for="occupation">Occupation</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="number" class="form-control" id="familySize" placeholder="3" value="3" min="1" max="8">
+                                        <label for="familySize">Family Size</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="number" class="form-control" id="restaurantRating" placeholder="3.5" value="3.5" min="1" max="5" step="0.5">
+                                        <label for="restaurantRating">Restaurant Rating</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="number" class="form-control" id="orderValue" placeholder="45" value="45" min="10" max="200">
+                                        <label for="orderValue">Order Value ($)</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                                <button type="button" class="btn btn-custom me-md-2" onclick="predictChurn()">
+                                    <i class="fas fa-magic me-2"></i>Predict Churn
+                                </button>
+                                <button type="button" class="btn btn-success-custom" onclick="predictOrders()">
+                                    <i class="fas fa-chart-line me-2"></i>Predict Orders
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-lg-7">
+                    <div id="churnResult" class="result-card success fade-in-up" style="display: none;">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h4><i class="fas fa-exclamation-triangle me-2 text-danger"></i>Churn Prediction</h4>
+                            <span class="badge bg-light text-dark">Updated: <span id="churnTime"></span></span>
+                        </div>
+                        <div class="text-center mb-4">
+                            <div class="prediction-badge badge-danger" id="churnBadge">
+                                <i class="fas fa-exclamation-triangle me-2"></i>
+                                High Risk Customer
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <div class="card border-0 bg-light">
+                                    <div class="card-body text-center p-3">
+                                        <div class="h1 text-danger mb-1" id="churnProbability">87%</div>
+                                        <div class="text-muted small">Risk Probability</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card border-0 bg-light">
+                                    <div class="card-body text-center p-3">
+                                        <div class="h6 text-warning mb-1">HIGH RISK</div>
+                                        <div class="text-muted small">Risk Level</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <h6 class="mb-3"><i class="fas fa-brain me-2 text-primary"></i>SHAP Model Explanation</h6>
+                            <div class="row g-2">
+                                <div class="col-6">
+                                    <div class="bg-danger-subtle p-3 rounded">
+                                        <small class="text-danger fw-bold">+0.34</small><br>
+                                        <small class="text-muted">Young Age</small>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="bg-danger-subtle p-3 rounded">
+                                        <small class="text-danger fw-bold">+0.28</small><br>
+                                        <small class="text-muted">Low Rating</small>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="bg-danger-subtle p-3 rounded">
+                                        <small class="text-danger fw-bold">+0.22</small><br>
+                                        <small class="text-muted">Few Orders</small>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="bg-success-subtle p-3 rounded">
+                                        <small class="text-success fw-bold">-0.15</small><br>
+                                        <small class="text-muted">Evening Orders</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-warning">
+                            <i class="fas fa-lightbulb me-2"></i>
+                            <strong>Recommendation:</strong> Send 20% discount coupon immediately to retain this customer!
+                        </div>
+                    </div>
+
+                    <div id="ordersResult" class="result-card fade-in-up" style="display: none;">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h4><i class="fas fa-shopping-cart me-2 text-success"></i>Order Prediction</h4>
+                            <span class="badge bg-light text-dark">Updated: <span id="ordersTime"></span></span>
+                        </div>
+                        <div class="text-center mb-4">
+                            <div class="h1 mb-2 prediction-number">12.5</div>
+                            <div class="h6 text-muted mb-3">predicted orders next 30 days</div>
+                            <div class="progress" style="height: 12px;">
+                                <div class="progress-bar bg-success" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+                                    <small class="fw-bold">High Confidence</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row text-center">
+                            <div class="col">
+                                <div class="h5 text-success mb-1">↑ 23%</div>
+                                <small class="text-muted">vs last month</small>
+                            </div>
+                            <div class="col">
+                                <div class="h5 text-primary mb-1">$562</div>
+                                <small class="text-muted">predicted revenue</small>
+                            </div>
+                            <div class="col">
+                                <div class="h5 text-info mb-1">Lunch</div>
+                                <small class="text-muted">peak time</small>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-info mt-4">
+                            <i class="fas fa-bullhorn me-2"></i>
+                            <strong>Action Item:</strong> Target this customer with lunch combo offers!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recommendation Tab -->
+        <div class="tab-content" id="recommendation-tab">
+            <div class="row align-items-center mb-4">
+                <div class="col">
+                    <h2><i class="fas fa-lightbulb me-2 text-warning"></i>Recommendations & Marketing</h2>
+                    <p class="text-muted">AI-powered personalization engine</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="card border-0 shadow-lg rounded-3 mb-4 fade-in-up">
+                        <div class="card-header bg-transparent border-0 p-4">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5><i class="fas fa-star me-2 text-warning"></i>Personalized Recommendations</h5>
+                                <div class="input-group input-group-sm" style="width: 200px;">
+                                    <input type="number" class="form-control" placeholder="Customer ID" value="123">
+                                    <button class="btn btn-warning btn-sm" onclick="generateRecommendations()">
+                                        <i class="fas fa-magic"></i> Generate
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body p-0">
+                            <div id="recommendationsList">
+                                <div class="rec-item d-flex align-items-center p-4 border-bottom">
+                                    <div class="rec-icon">
+                                        <i class="fas fa-drumstick-bite fa-2x text-white"></i>
+                                    </div>
+                                    <div class="flex-grow-1 ms-3">
+                                        <h6 class="mb-1 fw-bold">Spicy Fried Chicken</h6>
+                                        <p class="text-muted mb-2 small">Perfect match for Non-Veg preference</p>
+                                        <div class="d-flex justify-content-between">
+                                            <span class="text-success fw-bold">⭐ 4.8</span>
+                                            <span class="badge bg-success">Hot Item</span>
+                                        </div>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="rec-score mb-2">92%</div>
+                                        <small class="text-muted">Match Score</small>
+                                    </div>
+                                    <div class="ms-3">
+                                        <button class="btn btn-success btn-sm">
+                                            <i class="fas fa-paper-plane me-1"></i>Send Offer
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="rec-item d-flex align-items-center p-4 border-bottom">
+                                    <div class="rec-icon bg-info">
+                                        <i class="fas fa-seedling fa-2x text-white"></i>
+                                    </div>
+                                    <div class="flex-grow-1 ms-3">
+                                        <h6 class="mb-1 fw-bold">Grilled Chicken Salad</h6>
+                                        <p class="text-muted mb-2 small">Healthy option for balanced diet</p>
+                                        <div class="d-flex justify-content-between">
+                                            <span class="text-success fw-bold">⭐ 4.6</span>
+                                            <span class="badge bg-info">Healthy</span>
+                                        </div>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="rec-score mb-2">87%</div>
+                                        <small class="text-muted">Match Score</small>
+                                    </div>
+                                    <div class="ms-3">
+                                        <button class="btn btn-success btn-sm">
+                                            <i class="fas fa-paper-plane me-1"></i>Send Offer
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="rec-item d-flex align-items-center p-4">
+                                    <div class="rec-icon bg-danger">
+                                        <i class="fas fa-hamburger fa-2x text-white"></i>
+                                    </div>
+                                    <div class="flex-grow-1 ms-3">
+                                        <h6 class="mb-1 fw-bold">Beef Burger Combo</h6>
+                                        <p class="text-muted mb-2 small">20% discount - Limited time offer</p>
+                                        <div class="d-flex justify-content-between">
+                                            <span class="text-success fw-bold">⭐ 4.4</span>
+                                            <span class="badge bg-danger">Discount</span>
+                                        </div>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="rec-score mb-2">79%</div>
+                                        <small class="text-muted">Match Score</small>
+                                    </div>
+                                    <div class="ms-3">
+                                        <button class="btn btn-success btn-sm">
+                                            <i class="fas fa-paper-plane me-1"></i>Send Offer
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="card border-0 shadow-lg rounded-3 mb-4 fade-in-up">
+                        <div class="card-header bg-transparent border-0 p-4">
+                            <h5><i class="fas fa-chart-line me-2 text-success"></i>Order Forecast</h5>
+                        </div>
+                        <div class="card-body p-4">
+                            <div class="chart-container mb-4">
+                                <canvas id="forecastChart" width="200" height="150"></canvas>
+                            </div>
+                            <div class="row text-center g-3">
+                                <div class="col-4">
+                                    <div class="h6 text-success mb-1">📈</div>
+                                    <div class="small text-muted">Trend</div>
+                                    <div class="fw-bold text-success">Growing</div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="h6 text-primary mb-1">1,247</div>
+                                    <div class="small text-muted">Next 7 days</div>
+                                    <div class="fw-bold text-primary">Orders</div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="h6 text-warning mb-1">7-9 PM</div>
+                                    <div class="small text-muted">Peak hours</div>
+                                    <div class="fw-bold text-warning">45%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card border-0 shadow-lg rounded-3 fade-in-up">
+                        <div class="card-header bg-transparent border-0 p-4">
+                            <h5><i class="fas fa-bullhorn me-2 text-info"></i>Marketing Campaigns</h5>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="list-group list-group-flush">
+                                <div class="list-group-item px-4 py-3 border-0 bg-warning bg-opacity-10">
+                                    <div class="d-flex align-items-center">
+                                        <div class="bg-warning rounded-circle p-3 me-3">
+                                            <i class="fas fa-gift fa-lg text-warning"></i>
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <h6 class="mb-1">Flash Sale 50%</h6>
+                                            <small class="text-muted">Target Churn Risk customers</small>
+                                        </div>
+                                        <div class="text-end">
+                                            <div class="small text-muted mb-1">189 reach</div>
+                                            <span class="badge bg-warning text-dark">23% conversion</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list-group-item px-4 py-3 border-0 bg-success bg-opacity-10">
+                                    <div class="d-flex align-items-center">
+                                        <div class="bg-success rounded-circle p-3 me-3">
+                                            <i class="fas fa-envelope fa-lg text-success"></i>
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <h6 class="mb-1">Loyalty Email</h6>
+                                            <small class="text-muted">VIP vouchers for loyal customers</small>
+                                        </div>
+                                        <div class="text-end">
+                                            <div class="small text-muted mb-1">342 reach</div>
+                                            <span class="badge bg-success">45% open rate</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- History Tab -->
+        <div class="tab-content" id="history-tab">
+            <div class="row align-items-center mb-4">
+                <div class="col">
+                    <h2><i class="fas fa-history me-2 text-secondary"></i>Prediction History</h2>
+                    <p class="text-muted">Track all AI predictions and actions</p>
+                </div>
+                <div class="col-auto">
+                    <div class="input-group input-group-sm">
+                        <input type="text" class="form-control" placeholder="Search predictions...">
+                        <button class="btn btn-outline-secondary">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card border-0 shadow-lg rounded-3">
+                <div class="table-responsive">
+                    <table class="table mb-0">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Date & Time</th>
+                                <th>Customer</th>
+                                <th>Type</th>
+                                <th>Result</th>
+                                <th>Confidence</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="table-danger">
+                                <td>2025-01-15 14:32</td>
+                                <td><strong>CUST-123</strong><br><small class="text-muted">John Doe</small></td>
+                                <td><span class="badge bg-danger">Churn Risk</span></td>
+                                <td><span class="status-badge status-danger">High Risk</span></td>
+                                <td>
+                                    <div class="progress" style="height: 6px; width: 80px;">
+                                        <div class="progress-bar bg-danger" style="width: 87%"></div>
+                                    </div>
+                                    <small>87%</small>
+                                </td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-danger me-1">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="btn btn-sm btn-danger">
+                                        <i class="fas fa-paper-plane"></i> Send Offer
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="table-success">
+                                <td>2025-01-15 13:45</td>
+                                <td><strong>CUST-456</strong><br><small class="text-muted">Jane Smith</small></td>
+                                <td><span class="badge bg-success">Order Prediction</span></td>
+                                <td><span class="status-badge status-success">12.5 orders</span></td>
+                                <td>
+                                    <div class="progress" style="height: 6px; width: 80px;">
+                                        <div class="progress-bar bg-success" style="width: 85%"></div>
+                                    </div>
+                                    <small>85%</small>
+                                </td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="table-info">
+                                <td>2025-01-15 12:20</td>
+                                <td><strong>CUST-789</strong><br><small class="text-muted">Mike Johnson</small></td>
+                                <td><span class="badge bg-info">Recommendations</span></td>
+                                <td><span class="status-badge status-primary">3 suggestions</span></td>
+                                <td>
+                                    <div class="progress" style="height: 6px; width: 80px;">
+                                        <div class="progress-bar bg-info" style="width: 92%"></div>
+                                    </div>
+                                    <small>92%</small>
+                                </td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary me-1">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="btn btn-sm btn-success">
+                                        <i class="fas fa-check"></i> Apply
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="table-warning">
+                                <td>2025-01-15 11:55</td>
+                                <td><strong>CUST-101</strong><br><small class="text-muted">Sarah Wilson</small></td>
+                                <td><span class="badge bg-warning text-dark">Churn Risk</span></td>
+                                <td><span class="status-badge status-success">Low Risk</span></td>
+                                <td>
+                                    <div class="progress" style="height: 6px; width: 80px;">
+                                        <div class="progress-bar bg-success" style="width: 23%"></div>
+                                    </div>
+                                    <small>23%</small>
+                                </td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer bg-transparent border-0 py-3">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <small class="text-muted">Showing 1 to 4 of 247 entries</small>
+                        <nav>
+                            <ul class="pagination pagination-sm mb-0">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#"><i class="fas fa-chevron-left"></i></a>
+                                </li>
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Tab Navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const tabContents = document.querySelectorAll('.tab-content');
+            const pageTitle = document.getElementById('pageTitle');
+            const mobileToggle = document.getElementById('mobileToggle');
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('overlay');
+
+            // Tab switching
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+
+                    const targetTab = this.getAttribute('data-tab');
+
+                    // Update active nav
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+
+                    // Switch tabs
+                    tabContents.forEach(tab => tab.classList.remove('active'));
+                    document.getElementById(targetTab + '-tab').classList.add('active');
+
+                    // Update title
+                    const titles = {
+                        'dashboard': 'Dashboard Overview',
+                        'analysis': 'Customer Analysis',
+                        'prediction': 'AI Predictions',
+                        'recommendation': 'Recommendations',
+                        'history': 'Prediction History'
+                    };
+
+                    pageTitle.innerHTML = `<i class="fas fa-${this.querySelector('i').className.split(' ')[1]} me-2"></i>${titles[targetTab] || 'Dashboard'}`;
+                });
+            });
+
+            // Mobile menu
+            mobileToggle.addEventListener('click', function() {
+                sidebar.classList.toggle('show');
+                overlay.classList.toggle('d-block');
+            });
+
+            overlay.addEventListener('click', function() {
+                sidebar.classList.remove('show');
+                overlay.classList.remove('d-block');
+            });
+
+            // Dark mode
+            const darkModeToggle = document.getElementById('darkMode');
+            darkModeToggle.addEventListener('change', function() {
+                document.body.classList.toggle('dark', this.checked);
+                localStorage.setItem('darkMode', this.checked);
+            });
+
+            // Load saved theme
+            if (localStorage.getItem('darkMode') === 'true') {
+                darkModeToggle.checked = true;
+                document.body.classList.add('dark');
+            }
+
+            // Initialize charts
+            initCharts();
+        });
+
+        // Charts initialization
+        function initCharts() {
+            // Revenue chart
+            const revenueCtx = document.getElementById('revenueChart');
+            if (revenueCtx) {
+                new Chart(revenueCtx, {
+                    type: 'line',
+                    data: {
+                        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                        datasets: [{
+                            label: 'Revenue',
+                            data: [12000, 19000, 15000, 22000, 18000, 25000, 30000],
+                            borderColor: 'rgb(102, 126, 234)',
+                            backgroundColor: 'rgba(102, 126, 234, 0.1)',
+                            borderWidth: 3,
+                            fill: true,
+                            tension: 0.4,
+                            pointBackgroundColor: 'rgb(102, 126, 234)',
+                            pointBorderColor: '#fff',
+                            pointBorderWidth: 2,
+                            pointRadius: 6
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: false }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                grid: { color: 'rgba(0,0,0,0.05)' },
+                                ticks: { color: '#6b7280' }
+                            },
+                            x: {
+                                grid: { display: false },
+                                ticks: { color: '#6b7280' }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Segment chart
+            const segmentCtx = document.getElementById('segmentChart');
+            if (segmentCtx) {
+                new Chart(segmentCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Loyal', 'Casual', 'Risk', 'Discount'],
+                        datasets: [{
+                            data: [342, 456, 189, 260],
+                            backgroundColor: [
+                                'rgb(16, 185, 129)',
+                                'rgb(245, 158, 11)',
+                                'rgb(239, 68, 68)',
+                                'rgb(249, 115, 22)'
+                            ],
+                            borderWidth: 0,
+                            cutout: '60%'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: {
+                                    padding: 30,
+                                    usePointStyle: true,
+                                    pointStyle: 'circle',
+                                    color: '#6b7280'
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Cluster chart
+            const clusterCtx = document.getElementById('clusterChart');
+            if (clusterCtx) {
+                const generatePoints = (count, color, xMin, xMax, yMin, yMax) =>
+                    Array.from({length: count}, () => ({
+                        x: Math.random() * (xMax - xMin) + xMin,
+                        y: Math.random() * (yMax - yMin) + yMin
+                    }));
+
+                new Chart(clusterCtx, {
+                    type: 'scatter',
+                    data: {
+                        datasets: [
+                            {
+                                label: 'Loyal Customers',
+                                data: generatePoints(80, '#10b981', 20, 40, 8, 20),
+                                backgroundColor: '#10b981',
+                                pointRadius: 5,
+                                pointHoverRadius: 8
+                            },
+                            {
+                                label: 'Casual Users',
+                                data: generatePoints(120, '#f59e0b', 18, 35, 2, 8),
+                                backgroundColor: '#f59e0b',
+                                pointRadius: 5,
+                                pointHoverRadius: 8
+                            },
+                            {
+                                label: 'Churn Risk',
+                                data: generatePoints(50, '#ef4444', 18, 30, 0, 3),
+                                backgroundColor: '#ef4444',
+                                pointRadius: 5,
+                                pointHoverRadius: 8
+                            },
+                            {
+                                label: 'Discount Hunters',
+                                data: generatePoints(70, '#f97316', 22, 38, 3, 12),
+                                backgroundColor: '#f97316',
+                                pointRadius: 5,
+                                pointHoverRadius: 8
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                                labels: { padding: 20 }
+                            }
+                        },
+                        scales: {
+                            x: {
+                                title: { display: true, text: 'Age', font: { weight: 'bold' } },
+                                grid: { color: 'rgba(0,0,0,0.05)' },
+                                ticks: { color: '#6b7280' }
+                            },
+                            y: {
+                                title: { display: true, text: 'Orders', font: { weight: 'bold' } },
+                                grid: { color: 'rgba(0,0,0,0.05)' },
+                                ticks: { color: '#6b7280' }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Forecast chart
+            const forecastCtx = document.getElementById('forecastChart');
+            if (forecastCtx) {
+                new Chart(forecastCtx, {
+                    type: 'line',
+                    data: {
+                        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                        datasets: [
+                            {
+                                label: 'Forecast',
+                                data: [120, 150, 180, 200, 220, 250, 280],
+                                borderColor: 'rgb(16, 185, 129)',
+                                backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                                borderWidth: 3,
+                                fill: true,
+                                tension: 0.4,
+                                pointBackgroundColor: 'rgb(16, 185, 129)',
+                                pointBorderColor: '#fff',
+                                pointBorderWidth: 2
+                            },
+                            {
+                                label: 'Actual',
+                                data: [110, 140, 170, 190, 210, 240, null],
+                                borderColor: 'rgb(107, 114, 128)',
+                                borderWidth: 2,
+                                fill: false,
+                                tension: 0.4,
+                                pointBackgroundColor: 'rgb(107, 114, 128)',
+                                pointBorderColor: '#fff',
+                                pointBorderWidth: 2
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                                labels: { padding: 20 }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                grid: { color: 'rgba(0,0,0,0.05)' },
+                                ticks: { color: '#6b7280' }
+                            },
+                            x: {
+                                grid: { display: false },
+                                ticks: { color: '#6b7280' }
+                            }
+                        }
+                    }
+                });
+            }
+        }
+
+        // Prediction functions
+        function predictChurn() {
+            const churnResult = document.getElementById('churnResult');
+            const churnBadge = document.getElementById('churnBadge');
+            const churnProbability = document.getElementById('churnProbability');
+            const churnTime = document.getElementById('churnTime');
+
+            // Random demo prediction
+            const isHighRisk = Math.random() > 0.4;
+            const probability = Math.floor(Math.random() * 40) + 60; // 60-100%
+
+            if (isHighRisk) {
+                churnBadge.innerHTML = '<i class="fas fa-exclamation-triangle me-2"></i>High Risk Customer';
+                churnBadge.className = 'prediction-badge badge-danger';
+                churnProbability.className = 'h1 text-danger mb-1';
+                churnProbability.parentElement.parentElement.className = 'card border-0 bg-danger bg-opacity-10';
+                churnResult.className = 'result-card danger fade-in-up';
+            } else {
+                churnBadge.innerHTML = '<i class="fas fa-check-circle me-2"></i>Safe Customer';
+                churnBadge.className = 'prediction-badge badge-success';
+                churnProbability.className = 'h1 text-success mb-1';
+                churnProbability.parentElement.parentElement.className = 'card border-0 bg-success bg-opacity-10';
+                churnResult.className = 'result-card success fade-in-up';
+            }
+
+            churnProbability.textContent = probability + '%';
+            churnTime.textContent = new Date().toLocaleTimeString();
+
+            churnResult.style.display = 'block';
+            churnResult.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function predictOrders() {
+            const ordersResult = document.getElementById('ordersResult');
+            const ordersTime = document.getElementById('ordersTime');
+            const predictionNumber = ordersResult.querySelector('.prediction-number');
+
+            const predictedOrders = (Math.random() * 15 + 8).toFixed(1);
+            const confidence = Math.random() > 0.5 ? 85 : 65;
+
+            predictionNumber.textContent = predictedOrders;
+            ordersTime.textContent = new Date().toLocaleTimeString();
+
+            // Update progress bar
+            const progressBar = ordersResult.querySelector('.progress-bar');
+            progressBar.style.width = confidence + '%';
+            progressBar.innerHTML = `<small class="fw-bold">${confidence}% Confidence</small>`;
+
+            ordersResult.style.display = 'block';
+            ordersResult.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function generateRecommendations() {
+            // Simple animation effect
+            const recList = document.getElementById('recommendationsList');
+            recList.innerHTML = `
+                <div class="rec-item d-flex align-items-center p-4 border-bottom animate__animated animate__fadeInUp">
+                    <div class="rec-icon">
+                        <i class="fas fa-drumstick-bite fa-2x text-white"></i>
+                    </div>
+                    <div class="flex-grow-1 ms-3">
+                        <h6 class="mb-1 fw-bold">Spicy Fried Chicken</h6>
+                        <p class="text-muted mb-2 small">Perfect match for Non-Veg preference</p>
+                        <div class="d-flex justify-content-between">
+                            <span class="text-success fw-bold">⭐ 4.8</span>
+                            <span class="badge bg-success">Hot Item</span>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <div class="rec-score mb-2">92%</div>
+                        <small class="text-muted">Match Score</small>
+                    </div>
+                    <div class="ms-3">
+                        <button class="btn btn-success btn-sm">
+                            <i class="fas fa-paper-plane me-1"></i>Send Offer
+                        </button>
+                    </div>
+                </div>
+
+                <div class="rec-item d-flex align-items-center p-4 border-bottom animate__animated animate__fadeInUp" style="animation-delay: 0.1s;">
+                    <div class="rec-icon bg-info">
+                        <i class="fas fa-seedling fa-2x text-white"></i>
+                    </div>
+                    <div class="flex-grow-1 ms-3">
+                        <h6 class="mb-1 fw-bold">Grilled Chicken Salad</h6>
+                        <p class="text-muted mb-2 small">Healthy option for balanced diet</p>
+                        <div class="d-flex justify-content-between">
+                            <span class="text-success fw-bold">⭐ 4.6</span>
+                            <span class="badge bg-info">Healthy</span>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <div class="rec-score mb-2">87%</div>
+                        <small class="text-muted">Match Score</small>
+                    </div>
+                    <div class="ms-3">
+                        <button class="btn btn-success btn-sm">
+                            <i class="fas fa-paper-plane me-1"></i>Send Offer
+                        </button>
+                    </div>
+                </div>
+
+                <div class="rec-item d-flex align-items-center p-4 animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+                    <div class="rec-icon bg-danger">
+                        <i class="fas fa-hamburger fa-2x text-white"></i>
+                    </div>
+                    <div class="flex-grow-1 ms-3">
+                        <h6 class="mb-1 fw-bold">Beef Burger Combo</h6>
+                        <p class="text-muted mb-2 small">20% discount - Limited time offer</p>
+                        <div class="d-flex justify-content-between">
+                            <span class="text-success fw-bold">⭐ 4.4</span>
+                            <span class="badge bg-danger">Discount</span>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <div class="rec-score mb-2">79%</div>
+                        <small class="text-muted">Match Score</small>
+                    </div>
+                    <div class="ms-3">
+                        <button class="btn btn-success btn-sm">
+                            <i class="fas fa-paper-plane me-1"></i>Send Offer
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Add Animate.css for smooth animations
+        const animateCSS = (element, animation, prefix = 'animate__') =>
+            new Promise((resolve, reject) => {
+                const animationName = `${prefix}${animation}`;
+                element.classList.add(`${prefix}animated`, animationName);
+
+                function handleAnimationEnd() {
+                    element.classList.remove(`${prefix}animated`, animationName);
+                    resolve('Animation ended');
+                }
+
+                element.addEventListener('animationend', handleAnimationEnd);
+
+                element.addEventListener('animationcancel', handleAnimationEnd, { once: true });
+            });
+    </script>
+</body>
+</html>
