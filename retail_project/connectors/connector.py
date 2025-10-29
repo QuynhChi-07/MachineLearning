@@ -1,5 +1,5 @@
 #python -m pip install mysql-connector-python
-import mysql.connector
+import pymysql
 import traceback
 import pandas as pd
 class Connector:
@@ -11,7 +11,7 @@ class Connector:
         self.password=password
     def connect(self):
         try:
-            self.conn = mysql.connector.connect(
+            self.conn = pymysql.connect(
                 host=self.server,
                 port=self.port,
                 database=self.database,
@@ -33,7 +33,8 @@ class Connector:
             cursor.execute(sql)
             df = pd.DataFrame(cursor.fetchall())
             if not df.empty:
-                df.columns=cursor.column_names
+                df.columns = [col[0] for col in cursor.description]
+
             return df
         except:
             traceback.print_exc()
@@ -56,3 +57,20 @@ class Connector:
         except:
             traceback.print_exc()
         return None
+    def fetchall(self,sql,val):
+        try:
+            cursor = self.conn.cursor()
+            cursor.execute(sql,val)
+            dataset=cursor.fetchall()
+            cursor.close()
+            return dataset
+        except:
+            traceback.print_exc()
+        return None
+    def insert_one(self, sql, val):
+        cursor=self.conn.cursor()
+        cursor.execute(sql,val)
+        self.conn.commit()
+        result=cursor.rowcount
+        cursor.close()
+        return result

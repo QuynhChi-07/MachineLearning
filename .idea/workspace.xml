@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="77559c26-df4a-45e3-b563-422732b73475" name="Changes" comment="First" />
+    <list default="true" id="77559c26-df4a-45e3-b563-422732b73475" name="Changes" comment="retail_project" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,25 +13,37 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTML File" />
         <option value="Python Script" />
       </list>
+    </option>
+  </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform)); sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo, NoAppException&#10;for module in [&quot;main.py&quot;, &quot;wsgi.py&quot;, &quot;app.py&quot;]:&#10;    try: locals().update(ScriptInfo(app_import_path=module, create_app=None).load_app().make_shell_context()); print(&quot;\nFlask App: %s&quot; % app.import_name); break&#10;    except NoAppException: pass">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform)); sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo, NoAppException&#10;for module in [&quot;main.py&quot;, &quot;wsgi.py&quot;, &quot;app.py&quot;]:&#10;    try: locals().update(ScriptInfo(app_import_path=module, create_app=None).load_app().make_shell_context()); print(&quot;\nFlask App: %s&quot; % app.import_name); break&#10;    except NoAppException: pass" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "QuynhChi-07"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;QuynhChi-07&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/QuynhChi-07/MachineLearning.git",
-    "accountId": "65e5eb1f-9b3e-49db-90b0-95ab6a30a024"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/QuynhChi-07/MachineLearning.git&quot;,
+    &quot;accountId&quot;: &quot;65e5eb1f-9b3e-49db-90b0-95ab6a30a024&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -41,31 +53,61 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.baitap_p38.executor&quot;: &quot;Run&quot;,
-    &quot;Python.bt04_p49.executor&quot;: &quot;Run&quot;,
-    &quot;Python.bt_diemcong.executor&quot;: &quot;Run&quot;,
-    &quot;Python.simple_demo.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/K23416_MachineLearning&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "JavaScript Debug.aa.html.executor": "Debug",
+    "JavaScript Debug.demo_1.html.executor": "Run",
+    "JavaScript Debug.ui.html.executor": "Run",
+    "Python.CustomerCluster1.executor": "Run",
+    "Python.EmployeeMainWindowEx.executor": "Run",
+    "Python.LoginMainWindowEx.executor": "Run",
+    "Python.MLLinearRegression.executor": "Run",
+    "Python.MainWindowEx.executor": "Run",
+    "Python.MyApp.executor": "Run",
+    "Python.SimpleLinearRegression.executor": "Run",
+    "Python.SimpleLinearRegression2.executor": "Run",
+    "Python.TestQueryMySQL.executor": "Run",
+    "Python.baitap_p38.executor": "Run",
+    "Python.bt04_p49.executor": "Run",
+    "Python.bt_diemcong.executor": "Run",
+    "Python.connector.executor": "Run",
+    "Python.employee_connector.executor": "Run",
+    "Python.pp.executor": "Run",
+    "Python.simple_demo.executor": "Run",
+    "Python.test_connector.executor": "Run",
+    "Python.test_connector_model.executor": "Run",
+    "Python.test_employee_connector.executor": "Run",
+    "Python.test_employee_connector2.executor": "Run",
+    "Python.test_employee_connector3.executor": "Run",
+    "Python.test_employee_connector4.executor": "Run",
+    "Python.test_login_mainwindow.executor": "Run",
+    "Python.test_salesdatabase.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "last_opened_file_path": "D:/K23416_MachineLearning",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\K23416_MachineLearning" />
+      <recent name="D:\K23416_MachineLearning\retail_project\tests" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\K23416_MachineLearning\Linear" />
+      <recent name="D:\K23416_MachineLearning\AI" />
+      <recent name="D:\K23416_MachineLearning\retail_project\tests" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.bt04_p49">
-    <configuration name="baitap_p38" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.test_salesdatabase">
+    <configuration name="CustomerCluster1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="K23416_MachineLearning" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -74,12 +116,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/data_processing" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data_processing/baitap_p38.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CustomerCluster1.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -88,7 +130,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="bt04_p49" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="MLLinearRegression1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="K23416_MachineLearning" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -97,12 +139,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/data_processing" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data_processing/bt04_p49.py" />
+      <option name="SCRIPT_NAME" value="D:\K23416_MachineLearning\Linear\MLLinearRegression1.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -111,7 +153,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="bt_diemcong" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="SimpleLinearRegression" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="K23416_MachineLearning" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -120,12 +162,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/data_processing" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data_processing/bt_diemcong.py" />
+      <option name="SCRIPT_NAME" value="D:\K23416_MachineLearning\Linear\SimpleLinearRegression.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -134,7 +176,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="simple_demo" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="SimpleLinearRegression2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="K23416_MachineLearning" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -143,12 +185,35 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/data_processing" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data_processing/simple_demo.py" />
+      <option name="SCRIPT_NAME" value="D:\K23416_MachineLearning\Linear\SimpleLinearRegression2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test_salesdatabase" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="K23416_MachineLearning" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/retail_project/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/retail_project/tests/test_salesdatabase.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -159,10 +224,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.bt04_p49" />
-        <item itemvalue="Python.simple_demo" />
-        <item itemvalue="Python.bt_diemcong" />
-        <item itemvalue="Python.baitap_p38" />
+        <item itemvalue="Python.test_salesdatabase" />
+        <item itemvalue="Python.CustomerCluster1" />
+        <item itemvalue="Python.MLLinearRegression1" />
+        <item itemvalue="Python.SimpleLinearRegression2" />
+        <item itemvalue="Python.SimpleLinearRegression" />
       </list>
     </recent_temporary>
   </component>
@@ -183,7 +249,26 @@
       <option name="presentableId" value="Default" />
       <updated>1758676785972</updated>
       <workItem from="1758676787034" duration="7810000" />
-      <workItem from="1758700216929" duration="1506000" />
+      <workItem from="1758700216929" duration="1910000" />
+      <workItem from="1758719291486" duration="451000" />
+      <workItem from="1758721499638" duration="17000" />
+      <workItem from="1758721547028" duration="27000" />
+      <workItem from="1758982735902" duration="490000" />
+      <workItem from="1758990420239" duration="1075000" />
+      <workItem from="1759045196202" duration="682000" />
+      <workItem from="1759245519943" duration="290000" />
+      <workItem from="1759277516077" duration="6947000" />
+      <workItem from="1759881472013" duration="16259000" />
+      <workItem from="1759899786142" duration="1608000" />
+      <workItem from="1760486003044" duration="14513000" />
+      <workItem from="1760532374658" duration="10000" />
+      <workItem from="1760866053773" duration="1259000" />
+      <workItem from="1760896194202" duration="9000" />
+      <workItem from="1761091471372" duration="10398000" />
+      <workItem from="1761231006452" duration="596000" />
+      <workItem from="1761402382932" duration="9000" />
+      <workItem from="1761643478357" duration="121000" />
+      <workItem from="1761696705222" duration="4253000" />
     </task>
     <task id="LOCAL-00001" summary="First">
       <option name="closed" value="true" />
@@ -209,7 +294,31 @@
       <option name="project" value="LOCAL" />
       <updated>1758700658856</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="First">
+      <option name="closed" value="true" />
+      <created>1759302881004</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1759302881004</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Bổ sung Blog49">
+      <option name="closed" value="true" />
+      <created>1759302984669</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1759302984669</updated>
+    </task>
+    <task id="LOCAL-00006" summary="retail_project">
+      <option name="closed" value="true" />
+      <created>1759896832495</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1759896832496</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -228,12 +337,45 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First" />
-    <option name="LAST_COMMIT_MESSAGE" value="First" />
+    <MESSAGE value="Bổ sung Blog49" />
+    <MESSAGE value="retail_project" />
+    <option name="LAST_COMMIT_MESSAGE" value="retail_project" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/retail_project/uis/EmployeeMainWindowEx.py</url>
+          <line>80</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/K23416_MachineLearning$test_connector.coverage" NAME="test_connector Coverage Results" MODIFIED="1760486247572" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/retail_project/tests" />
+    <SUITE FILE_PATH="coverage/K23416_MachineLearning$TestQueryMySQL.coverage" NAME="TestQueryMySQL Coverage Results" MODIFIED="1759281504815" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/d01_10_2025" />
+    <SUITE FILE_PATH="coverage/K23416_MachineLearning$test_login_mainwindow.coverage" NAME="test_login_mainwindow Coverage Results" MODIFIED="1761094215467" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/retail_project/tests" />
+    <SUITE FILE_PATH="coverage/K23416_MachineLearning$MLLinearRegression.coverage" NAME="MLLinearRegression Coverage Results" MODIFIED="1761097561919" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/K23416_MachineLearning$test_salesdatabase.coverage" NAME="test_salesdatabase Coverage Results" MODIFIED="1761701087453" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/retail_project/tests" />
+    <SUITE FILE_PATH="coverage/K23416_MachineLearning$MainWindowEx.coverage" NAME="MainWindowEx Coverage Results" MODIFIED="1759284688892" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/StudentManagement" />
+    <SUITE FILE_PATH="coverage/K23416_MachineLearning$test_employee_connector.coverage" NAME="test_employee_connector Coverage Results" MODIFIED="1760496095559" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/retail_project/tests" />
+    <SUITE FILE_PATH="coverage/K23416_MachineLearning$connector.coverage" NAME="connector Coverage Results" MODIFIED="1759901075677" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/retail_project/connectors" />
+    <SUITE FILE_PATH="coverage/K23416_MachineLearning$employee_connector.coverage" NAME="employee_connector Coverage Results" MODIFIED="1761093806790" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/retail_project/connectors" />
     <SUITE FILE_PATH="coverage/K23416_MachineLearning$bt04_p49.coverage" NAME="bt04_p49 Coverage Results" MODIFIED="1758682059336" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data_processing" />
+    <SUITE FILE_PATH="coverage/K23416_MachineLearning$pp.coverage" NAME="pp Coverage Results" MODIFIED="1759900001174" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/retail_project/tests" />
+    <SUITE FILE_PATH="coverage/K23416_MachineLearning$SimpleLinearRegression2.coverage" NAME="SimpleLinearRegression2 Coverage Results" MODIFIED="1761097269196" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/K23416_MachineLearning$simple_demo.coverage" NAME="simple_demo Coverage Results" MODIFIED="1758681626423" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data_processing" />
+    <SUITE FILE_PATH="coverage/K23416_MachineLearning$test_employee_connector4.coverage" NAME="test_employee_connector4 Coverage Results" MODIFIED="1761093810652" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/retail_project/tests" />
+    <SUITE FILE_PATH="coverage/K23416_MachineLearning$SimpleLinearRegression.coverage" NAME="SimpleLinearRegression Coverage Results" MODIFIED="1761096320467" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/K23416_MachineLearning$LoginMainWindowEx.coverage" NAME="LoginMainWindowEx Coverage Results" MODIFIED="1760489713437" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/retail_project/uis" />
     <SUITE FILE_PATH="coverage/K23416_MachineLearning$baitap_p38.coverage" NAME="baitap_p38 Coverage Results" MODIFIED="1758676981999" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data_processing" />
+    <SUITE FILE_PATH="coverage/K23416_MachineLearning$test_employee_connector2.coverage" NAME="test_employee_connector2 Coverage Results" MODIFIED="1760498883447" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/retail_project/tests" />
+    <SUITE FILE_PATH="coverage/K23416_MachineLearning$MyApp.coverage" NAME="MyApp Coverage Results" MODIFIED="1759285133086" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/StudentManagement" />
+    <SUITE FILE_PATH="coverage/K23416_MachineLearning$CustomerCluster1.coverage" NAME="CustomerCluster1 Coverage Results" MODIFIED="1761700428809" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/K23416_MachineLearning$test_employee_connector3.coverage" NAME="test_employee_connector3 Coverage Results" MODIFIED="1760501208229" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/retail_project/tests" />
+    <SUITE FILE_PATH="coverage/K23416_MachineLearning$test_connector_model.coverage" NAME="test_connector_model Coverage Results" MODIFIED="1759888674173" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/retail_project" />
     <SUITE FILE_PATH="coverage/K23416_MachineLearning$bt_diemcong.coverage" NAME="bt_diemcong Coverage Results" MODIFIED="1758677338531" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data_processing" />
+    <SUITE FILE_PATH="coverage/K23416_MachineLearning$EmployeeMainWindowEx.coverage" NAME="EmployeeMainWindowEx Coverage Results" MODIFIED="1760495661354" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/retail_project/uis" />
   </component>
 </project>

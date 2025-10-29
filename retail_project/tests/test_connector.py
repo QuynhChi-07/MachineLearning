@@ -1,6 +1,6 @@
 import traceback
 
-import mysql.connector
+import pymysql
 
 server="localhost"
 port=3306
@@ -9,7 +9,7 @@ username="root"
 password="@Obama123"
 
 try:
-    conn = mysql.connector.connect(
+    conn = pymysql.connect(
                     host=server,
                     port=port,
                     database=database,
