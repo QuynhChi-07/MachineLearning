@@ -7,6 +7,7 @@ import seaborn as sns
 from matplotlib import pyplot as plt
 from sklearn.cluster import KMeans
 
+import plotly.express as px
 
 def getConnect(server, port, database, username, password):
     try:
@@ -123,4 +124,121 @@ def visualizeKMeans(X, y_kmeans, cluster, title,xlabel,ylabel, colors):
     plt.legend()
     plt.show()
 visualizeKMeans(X,y_kmeans,cluster,"Cluster of Customers - Age X Spending Score","Age","Spending Score",colors)
+
+#Chạy k=5
+columns = ['Annual_Income', 'Spending_Score']
+elbowMethod(df2,columns)
+X=df2.loc[:, columns].values
+cluster=5
+
+y_kmeans, centroids, labels = runKMeans(X, cluster)
+
+print(y_kmeans)
+print(centroids)
+print(labels)
+df2["cluster"]=labels
+
+visualizeKMeans(X, y_kmeans,cluster,"Cluster of Customer - Annual Income X Spending Score", "Annual Income","Spending Score",colors)
+
+#Chạy k=6
+columns = ['Age','Annual_Income', 'Spending_Score']
+elbowMethod(df2,columns)
+X=df2.loc[:, columns].values
+cluster=6
+
+y_kmeans, centroids, labels = runKMeans(X, cluster)
+print(y_kmeans)
+print(centroids)
+print(labels)
+df2["cluster"]=labels
+print(df2)
+
+def visualize3DKMeans(df, columns, hover_data, cluster):
+    fig=px.scatter_3d(df, x=columns[0], y=columns[1], z=columns[2],color='cluster', hover_data=hover_data, category_orders={"cluster": range(0, cluster)})
+    fig.update_layout(margin=dict(l=0, r=0, b=0, t=0))
+    fig.show()
+hover_data=df2.columns
+visualize3DKMeans(df2, columns, hover_data, cluster)
+
+#Hàm in danh sách Customer theo cụm ra console
+import webbrowser
+
+# Hiện danh sách khách hàng theo cụm trên CONSOLE
+def printCustomerByCluster(df):
+    """
+    In danh sách chi tiết của các Customer tương ứng với từng cụm ra console.
+    """
+    if 'cluster' not in df.columns:
+        print("Chưa có cột 'cluster' trong DataFrame!")
+        return
+
+    clusters = sorted(df['cluster'].unique())
+    print(f"\n==========================")
+    print(f"TỔNG SỐ CỤM: {len(clusters)}")
+    print("==========================")
+
+    for c in clusters:
+        print(f"CỤM {c}")
+        subset = df[df['cluster'] == c]
+        print(subset[['CustomerID', 'Age', 'Annual_Income', 'Spending_Score', 'cluster']])
+        print(f"Số lượng khách hàng trong cụm {c}: {len(subset)}")
+
+# Gọi thử
+printCustomerByCluster(df2)
+
+# Xuất danh sách khách hàng theo cụm ra WEB (HTML)
+import webbrowser
+
+def exportCustomerByClusterToWeb(df, filename="customer_clusters.html"):
+    """
+    Xuất danh sách chi tiết của các Customer theo cụm ra giao diện web (HTML file, hỗ trợ tiếng Việt chuẩn).
+    """
+    if 'cluster' not in df.columns:
+        print("Chưa có cột 'cluster' trong DataFrame!")
+        return
+
+    # Tạo nội dung HTML
+    html_content = """
+    <!DOCTYPE html>
+    <html lang="vi">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Chi tiết cụm khách hàng</title>
+        <style>
+            body {font-family: Arial, sans-serif; margin: 30px; background: #f7f7f7;}
+            h1 {text-align: center; color: #333;}
+            h2 {color: #2a7cbb; margin-top: 40px;}
+            table {width: 100%; border-collapse: collapse; margin-bottom: 20px;}
+            th, td {border: 1px solid #aaa; padding: 8px; text-align: center;}
+            th {background-color: #2a7cbb; color: white;}
+            tr:nth-child(even) {background-color: #f2f2f2;}
+            hr {border: 1px solid #ccc; margin-top: 40px;}
+        </style>
+    </head>
+    <body>
+        <h1>Chi tiết cụm khách hàng</h1>
+    """
+
+    clusters = sorted(df['cluster'].unique())
+    for c in clusters:
+        html_content += f"<h2>Cụm {c}</h2>"
+        subset = df[df['cluster'] == c]
+        html_content += subset[['CustomerID', 'Age', 'Annual_Income', 'Spending_Score', 'cluster']].to_html(index=False, border=1)
+        html_content += f"<p><b>Số lượng khách hàng trong cụm {c}:</b> {len(subset)}</p><hr>"
+
+    html_content += """
+    </body>
+    </html>
+    """
+
+    # CHỈ KHÁC Ở ĐÂY: Dùng utf-8-sig để đảm bảo hiển thị tiếng Việt đúng
+    with open(filename, "w", encoding="utf-8-sig") as f:
+        f.write(html_content)
+
+    print(f"Đã xuất danh sách chi tiết khách hàng theo cụm ra file: {filename}")
+    webbrowser.open(filename)
+
+# Gọi thử
+exportCustomerByClusterToWeb(df2)
+
 
