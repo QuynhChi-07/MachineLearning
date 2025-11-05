@@ -28,17 +28,20 @@ class Connector:
             self.conn.close()
 
     def queryDataset(self, sql):
+        """
+        Chạy câu SQL và trả về kết quả dưới dạng pandas DataFrame
+        """
         try:
-            cursor = self.conn.cursor()
-            cursor.execute(sql)
-            df = pd.DataFrame(cursor.fetchall())
-            if not df.empty:
-                df.columns = [col[0] for col in cursor.description]
+            if not self.conn:
+                raise ValueError("Chưa có kết nối database. Hãy gọi connect() trước.")
 
+            df = pd.read_sql(sql, self.conn)
             return df
-        except:
+
+        except Exception as e:
+            print("Lỗi khi chạy queryDataset:", e)
             traceback.print_exc()
-        return None
+            return pd.DataFrame()
     def getTablesName(self):
         cursor = self.conn.cursor()
         cursor.execute("Show tables;")
