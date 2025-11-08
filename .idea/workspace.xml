@@ -5,24 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="77559c26-df4a-45e3-b563-422732b73475" name="Changes" comment="retail_project">
-      <change afterPath="$PROJECT_DIR$/blog56/App.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog56/Connectors/Connector.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog56/Models/MetricsResult.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog56/Models/PurchaseLinearRegression.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog56/Models/PurchaseMLModel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog56/Models/PurchaseStatistic.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog56/Models/TrainedModel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog56/Tests/AppLinearRegression.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog56/Tests/AppModel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog56/Tests/AppStatistic.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog56/Tests/TestLoadModel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog56/UI/ChartHandle.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog56/UI/ChartType.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog56/UI/DatabaseConnect.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog56/UI/DatabaseConnectEx.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog56/UI/MainWindow.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog56/UI/MainWindowEx.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/KTGK/App.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/KTGK/Connectors/Connector.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/KTGK/Image/ic_logo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/on_KTGK/App.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/on_KTGK/Connectors/Connector.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/on_KTGK/Image/ic_logo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/on_KTGK/Models/CustomerModel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/on_KTGK/Models/MLModel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/on_KTGK/Models/StatisticModel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/on_KTGK/Test/Test_Statistic.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/on_KTGK/UI/MainWindow.ui" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/on_KTGK/UI/MainWindowEx.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/K234161822_NguyenNgocQuynhChi.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog56/Connectors/Connector.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog56/Connectors/Connector.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,6 +79,7 @@
     "JavaScript Debug.index.html.executor": "Run",
     "JavaScript Debug.ui.html.executor": "Run",
     "Python.App (1).executor": "Run",
+    "Python.App (2).executor": "Run",
     "Python.App.executor": "Run",
     "Python.CustomerCluster1.executor": "Run",
     "Python.EmployeeMainWindowEx.executor": "Run",
@@ -92,6 +90,7 @@
     "Python.SimpleLinearRegression.executor": "Run",
     "Python.SimpleLinearRegression2.executor": "Run",
     "Python.TestQueryMySQL.executor": "Run",
+    "Python.Test_Statistic.executor": "Run",
     "Python.app.executor": "Run",
     "Python.baitap_p38.executor": "Run",
     "Python.bonus.executor": "Run",
@@ -114,7 +113,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "ToolWindow.Plots.ShowToolbar": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/K23416_MachineLearning",
+    "last_opened_file_path": "D:/K23416_MachineLearning/KTGK",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -126,21 +125,20 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\K23416_MachineLearning\KTGK" />
+      <recent name="D:\K23416_MachineLearning\on_KTGK\Image" />
       <recent name="D:\K23416_MachineLearning" />
       <recent name="D:\K23416_MachineLearning\retail_project\tests" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\K23416_MachineLearning\on_KTGK\Models" />
       <recent name="D:\K23416_MachineLearning\blog56\Connectors" />
       <recent name="D:\K23416_MachineLearning\housing_price_prediction\bai2" />
       <recent name="D:\K23416_MachineLearning\Linear" />
       <recent name="D:\K23416_MachineLearning\AI" />
-      <recent name="D:\K23416_MachineLearning\retail_project\tests" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.App (1)">
-    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/K23416_MachineLearning/housing_price_prediction/Web_HousePricePrediction/templates/index.html" useBuiltInWebServerPort="true">
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.App (2)">
     <configuration name="App (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="K23416_MachineLearning" />
       <option name="ENV_FILES" value="" />
@@ -156,6 +154,29 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/blog56/App.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="App (2)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="K23416_MachineLearning" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/on_KTGK" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/on_KTGK/App.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -187,6 +208,29 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="Test_Statistic" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="K23416_MachineLearning" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/on_KTGK/Test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/on_KTGK/Test/Test_Statistic.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="K23416_MachineLearning" />
       <option name="ENV_FILES" value="" />
@@ -210,36 +254,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="K23416_MachineLearning" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/housing_price_prediction/bai2" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/housing_price_prediction/bai2/main.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.App (2)" />
+        <item itemvalue="Python.Test_Statistic" />
         <item itemvalue="Python.App (1)" />
         <item itemvalue="Python.App" />
         <item itemvalue="Python.app" />
-        <item itemvalue="JavaScript Debug.index.html" />
-        <item itemvalue="Python.main" />
       </list>
     </recent_temporary>
   </component>
@@ -283,6 +304,8 @@
       <workItem from="1761704268347" duration="5356000" />
       <workItem from="1761745049520" duration="13000" />
       <workItem from="1762301194419" duration="13978000" />
+      <workItem from="1762326735987" duration="323000" />
+      <workItem from="1762570653778" duration="8616000" />
     </task>
     <task id="LOCAL-00001" summary="First">
       <option name="closed" value="true" />
@@ -392,6 +415,7 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/K23416_MachineLearning$App__2_.coverage" NAME="App (2) Coverage Results" MODIFIED="1762611004980" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/on_KTGK" />
     <SUITE FILE_PATH="coverage/K23416_MachineLearning$test_connector.coverage" NAME="test_connector Coverage Results" MODIFIED="1760486247572" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/retail_project/tests" />
     <SUITE FILE_PATH="coverage/K23416_MachineLearning$main.coverage" NAME="main Coverage Results" MODIFIED="1762307407893" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/housing_price_prediction/bai2" />
     <SUITE FILE_PATH="coverage/K23416_MachineLearning$TestQueryMySQL.coverage" NAME="TestQueryMySQL Coverage Results" MODIFIED="1759281504815" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/d01_10_2025" />
@@ -407,6 +431,7 @@
     <SUITE FILE_PATH="coverage/K23416_MachineLearning$SimpleLinearRegression2.coverage" NAME="SimpleLinearRegression2 Coverage Results" MODIFIED="1761097269196" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/K23416_MachineLearning$simple_demo.coverage" NAME="simple_demo Coverage Results" MODIFIED="1758681626423" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data_processing" />
     <SUITE FILE_PATH="coverage/K23416_MachineLearning$test_employee_connector4.coverage" NAME="test_employee_connector4 Coverage Results" MODIFIED="1761093810652" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/retail_project/tests" />
+    <SUITE FILE_PATH="coverage/K23416_MachineLearning$Test_Statistic.coverage" NAME="Test_Statistic Coverage Results" MODIFIED="1762597431236" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/on_KTGK/Test" />
     <SUITE FILE_PATH="coverage/K23416_MachineLearning$SimpleLinearRegression.coverage" NAME="SimpleLinearRegression Coverage Results" MODIFIED="1761096320467" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/K23416_MachineLearning$LoginMainWindowEx.coverage" NAME="LoginMainWindowEx Coverage Results" MODIFIED="1760489713437" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/retail_project/uis" />
     <SUITE FILE_PATH="coverage/K23416_MachineLearning$App.coverage" NAME="App Coverage Results" MODIFIED="1762308687995" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/housing_price_prediction/pyqt6" />

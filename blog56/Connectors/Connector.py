@@ -25,7 +25,7 @@ class Connector:
             return self.conn
         except Exception as e:
             self.conn = None
-            print("❌ Database connection failed:", e)
+            print("Database connection failed:", e)
             traceback.print_exc()
             return None
 
@@ -35,7 +35,7 @@ class Connector:
                 self.conn.close()
                 self.conn = None
         except Exception as e:
-            print("⚠️ Error disconnecting:", e)
+            print("Error disconnecting:", e)
             traceback.print_exc()
 
     def queryDataset(self, sql):
@@ -47,7 +47,7 @@ class Connector:
                     df.columns = df.columns  # tên cột giữ nguyên do DictCursor
                 return df
         except Exception as e:
-            print("❌ Query failed:", e)
+            print("Query failed:", e)
             traceback.print_exc()
             return None
 
@@ -59,6 +59,6 @@ class Connector:
                 tablesName = [list(item.values())[0] for item in results]
                 return tablesName
         except Exception as e:
-            print("❌ Could not get tables:", e)
+            print("Could not get tables:", e)
             traceback.print_exc()
             return []
